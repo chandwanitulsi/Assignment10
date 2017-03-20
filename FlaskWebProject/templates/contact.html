@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>Index file</title>
+</head>
+<body>
+<p>Create Text Note</p>
+<form name="textnotefrm" action="inserttextNote" method="post">
+     Subject: <input type="text" name="subject">
+     Text : <input type="text" name="textnote">
+     Priority: <input type="text" name="priority">
+    <input type="submit" value="Add">
+</form>
+<p>Create Image Note</p>
+<form name="imagenotefrm" action="insertimageNote" method="post" enctype="multipart/form-data">
+     Subject: <input type="text" name="subjectimage">
+     <input type="file" name="noteimage">
+     Priority: <input type="text" name="priorityimage">
+    <input type="submit" value="Add Image">
+</form>
+</body>
+</html>

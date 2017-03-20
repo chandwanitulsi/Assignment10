@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show TEXT Notes</title>
+    <script>
+        function myFunction(sortcriteria) {
+            alert(sortcriteria);
+            window.location.href = '/showNotes?sort=' + sortcriteria;
+        }
+    </script>
+</head>
+<body>
+<label> Sort By: </label><input type="button" value="Subject" onclick="myFunction('Subject')">
+<input type="button" value="Time" onclick="myFunction('Time')">
+<input type="button" value="Priority" onclick="myFunction('Priority')">
+<div>
+    <table name="tablenotes" border="10">
+        <thead>
+        <th>Note_id</th>
+        <th>Content</th>
+        <th>subject</th>
+        <th>Priority</th>
+        <th>Time</th>
+        </thead>
+        {% for textnote in textNotesList %}
+            <tr>
+                <td>{{ textnote.Note_id }}</td>
+                {% if textnote.Type == "Image" %}
+                    <td><img src="{{textnote.imageblob}}"/></td>
+                {% endif %}
+                {% if textnote.Type == "Note" %}
+                    <td>{{ textnote.NoteText }}</td>
+                {% endif %}
+                <td>{{ textnote.subject }}</td>
+                <td>{{ textnote.priority }}</td>
+                <td>{{ textnote.time }}</td>
+
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+</body>
+</html>
